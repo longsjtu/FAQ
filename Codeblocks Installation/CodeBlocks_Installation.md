@@ -51,9 +51,25 @@
     这一节适合同学们在对编写C++代码较为熟悉之后的学习
     对于如下一段简单的代码，我们提供一份简单的代码调试指导
 
-'''java
-#include <iostream>
-'''
+
+    #include <iostream>
+    using namespace std;
+    int sumCubic(int n) {
+    // 计算 1^3 + 2^3 + ... + n^3
+    int sum = 0;
+    while (n) {
+        sum += n * n * n;
+        n--;
+    }
+    return sum;
+    }
+    int main()
+    {
+    for (int n = 0; n <= 10; ++n) {
+        cout << "sumSquare(" << n << ") = " << sumCubic(n) << endl;
+    }
+    return 0;
+    }
 
 
 
