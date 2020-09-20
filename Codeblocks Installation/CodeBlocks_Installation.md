@@ -99,7 +99,23 @@
 **解压汉化包**
 
     首先找到codeblocks的安装位置，点进share文件夹。
+    
+![image](https://github.com/longsjtu/FAQ/blob/Programming---ideas-and-methods/Codeblocks%20Installation/images/4-1.png)
 
+    然后点进codeblocks文件夹
+
+![image](https://github.com/longsjtu/FAQ/blob/Programming---ideas-and-methods/Codeblocks%20Installation/images/4-2.png)
+
+    在当前这个文件夹下解压汉化包
+
+![image](https://github.com/longsjtu/FAQ/blob/Programming---ideas-and-methods/Codeblocks%20Installation/images/4-3.png)
+
+    最终的汉化文件的位置应该如图所示，即locale\zh_CN\zh_CN.mo
+
+![image](https://github.com/longsjtu/FAQ/blob/Programming---ideas-and-methods/Codeblocks%20Installation/images/4-4.png)
+
+**配置Codeblocks
+- 打开
 
 
 
