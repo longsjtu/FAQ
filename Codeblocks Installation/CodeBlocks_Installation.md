@@ -114,11 +114,22 @@
 
 ![image](https://github.com/longsjtu/FAQ/blob/Programming---ideas-and-methods/Codeblocks%20Installation/images/4-4.png)
 
-**配置Codeblocks
-- 打开
+**配置Codeblocks**
 
+- 打开Codeblocks，点击Setting->Environment
 
+![image](https://github.com/longsjtu/FAQ/blob/Programming---ideas-and-methods/Codeblocks%20Installation/images/4-5.png)
 
+- 点击View
+- 勾选Internationalization
+- 右侧下拉选择Chinese(Simplified)
+- 点击OK即可
+
+![image](https://github.com/longsjtu/FAQ/blob/Programming---ideas-and-methods/Codeblocks%20Installation/images/4-6.png)
+
+- 重启Codeblocks即可看到汉化效果
+
+![image](https://github.com/longsjtu/FAQ/blob/Programming---ideas-and-methods/Codeblocks%20Installation/images/4-7.png)
 
 
 
