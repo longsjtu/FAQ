@@ -98,7 +98,7 @@
 
 **解压汉化包**
 
-首先找到codeblocks的安装位置，点进share文件夹。
+    首先找到codeblocks的安装位置，点进share文件夹。
 
 
 
