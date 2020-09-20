@@ -89,9 +89,16 @@
 ![image](https://github.com/longsjtu/FAQ/blob/Programming---ideas-and-methods/Codeblocks%20Installation/images/3-5.png)
 
 ### 汉化
+
 **汉化包链接**
+
 [交大云盘下载链接](https://jbox.sjtu.edu.cn/link/view/add5e7c40dbb4f668af0f0f3fa48b85d)
-汉化包是一个名为locale.zip的压缩包
+
+汉化包是一个名为locale.zip的压缩包。
+
+**解压汉化包**
+
+首先找到codeblocks的安装位置，点进share文件夹。
 
 
 
