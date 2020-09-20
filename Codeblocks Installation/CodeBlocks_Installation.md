@@ -50,8 +50,12 @@
     2. 在运行时，观察中断处指定表达式的值
     这一节适合同学们在对编写C++代码较为熟悉之后的学习
     对于如下一段简单的代码，我们提供一份简单的代码调试指导
-
-    #include <iostream>
+    
+    
+'''java
+asd
+'''
+#include <iostream>
     using namespace std;
     int sumCubic(int n) {
     // 计算 1^3 + 2^3 + ... + n^3
