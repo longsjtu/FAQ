@@ -44,6 +44,23 @@
 ![image](https://github.com/longsjtu/FAQ/blob/Programming---ideas-and-methods/Codeblocks%20Installation/images/2-8.png)
 ![image](https://github.com/longsjtu/FAQ/blob/Programming---ideas-and-methods/Codeblocks%20Installation/images/2-9.png)
 
-CodeBlocks如何进行简单的代码调试/Debug?
-Debug的功能：
-1. 
+### CodeBlocks如何进行简单的代码调试/Debug?
+    Debug的功能：
+    1. 提供运行时的中断处的局部变量和全局变量值
+    2. 在运行时，观察中断处指定表达式的值
+    这一节适合同学们在对编写C++代码较为熟悉之后的学习
+    对于如下一段简单的代码，我们提供一份简单的代码调试指导
+
+*** cpp
+#include
+***
+
+
+
+
+
+
+
+
+
+
