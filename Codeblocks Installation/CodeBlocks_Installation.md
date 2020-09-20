@@ -1,7 +1,7 @@
 ## 下载 codeblocks-20.03mingw-setup.exe
 [交大云盘下载链接](https://jbox.sjtu.edu.cn/link/view/9f753b5137eb496388b32760df8ee67d)
 ## 安装
->>>>1. 双击安装包：codeblocks-20.03mingw-setup.exe
+    1. 双击安装包：codeblocks-20.03mingw-setup.exe
     2. 点击：Next, I agree, Next, Install.
 
 ![image](https://github.com/longsjtu/FAQ/blob/Programming---ideas-and-methods/Codeblocks%20Installation/images/1.png)
@@ -51,7 +51,7 @@
     这一节适合同学们在对编写C++代码较为熟悉之后的学习
     对于如下一段简单的代码，我们提供一份简单的代码调试指导
 
-''' java
+'''java
 #include <iostream>
 '''
 
