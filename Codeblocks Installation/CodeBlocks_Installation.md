@@ -73,7 +73,7 @@
     将代码拷贝到你的项目里面（你可以新建一个项目，然后替换掉 main.cpp 里面的内容）
 然后如图，鼠标单击行号即可设置中断点，打开**红色小三角形**开启调试。
 
-
+![image](https://github.com/longsjtu/FAQ/blob/Programming---ideas-and-methods/Codeblocks%20Installation/images/3-1.png)
 
 
 
