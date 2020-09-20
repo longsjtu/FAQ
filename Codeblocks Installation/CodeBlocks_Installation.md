@@ -87,3 +87,16 @@
     最后，可以点击红色的 X 退出 Debug。
 
 ![image](https://github.com/longsjtu/FAQ/blob/Programming---ideas-and-methods/Codeblocks%20Installation/images/3-5.png)
+
+### 汉化
+**汉化包链接**
+
+
+
+
+
+
+
+
+
+
