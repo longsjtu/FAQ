@@ -4,3 +4,5 @@
 &emsp; 正整数转成二进制，要点：除二取余，然后倒序排列，高位补零。
 
 ![image](https://github.com/longsjtu/FAQ/blob/Programming---ideas-and-methods/Chapter2/十进制转二进制.png)
+
+计算机内部表示数的字节单位是定长的，如8位，16位，或32位。所以，位数不够时，高位补零。所以在占用8位时，计算机存储00101010
