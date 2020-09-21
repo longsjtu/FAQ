@@ -5,3 +5,5 @@
 &emsp; (1) 该年份能被 4 整除同时不能被 100 整除；
 
 &emsp; (2) 该年份能被400整除。
+
+![image](https://github.com/longsjtu/FAQ/blob/Programming---ideas-and-methods/Codeblocks%20Installation/images/1.png)
