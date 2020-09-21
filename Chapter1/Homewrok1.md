@@ -6,4 +6,4 @@
 
 &emsp; (2) 该年份能被400整除。
 
-![image](https://github.com/longsjtu/FAQ/blob/Programming---ideas-and-methods/Codeblocks%20Installation/images/1.png)
+![image](https://github.com/longsjtu/FAQ/blob/Programming---ideas-and-methods/Chapter1/新建%20Microsoft%20Visio%20绘图.png)
