@@ -54,7 +54,56 @@
 
 &emsp; 虽然也可以写出数组大小 void f(int [10]);，但是不推荐。二维数组有void f(int [][10])的写法，亦不推荐。
 
+**函数默认参数问题。**
 
+&emsp; C++规定默认参数只能在声明或者定义中出现一次。一般建议将默认参数写在声明中。
+
+    struct Array {
+	    Array(int capacity=10);
+    };
+
+    Array::Array(int capacity=10) {} // 错误
+    Array::Array(int capacity) {} // OK
+
+**函数存在无返回值的可能性。**
+
+&emsp; 忘记写返回，如赋值运算符重载忘记返回*this。或者没有管辖到条件分支的所有情况。
+
+    int f(int x) {
+	    if (x == 0) return 0;
+        // warning: control reaches end of non-void function [-Wreturn-type]
+    }
+
+**前置函数声明，在后面实现函数时，函数签名不匹配。(const，&修饰符)**
+
+&emsp; 例如
+
+// 前置的函数声明
+bool search(const int&) const;
+
+// 后置函数实现
+// void search(const int&) const {...}; 错误，函数签名不匹配
+// bool search(int&) const {...}; 错误，函数签名不匹配
+// bool search(const int) const {...}; 错误，函数签名不匹配
+// bool search(const int&) {...}; 错误，函数签名不匹配
+bool search(const int&) const {...}; // OK
+C++的赋值都是值传递。体会差别：
+
+struct Node { 
+    int data;
+	Node* next;
+    Node(int d=0): data(d) {}
+};
+
+Node* head = new Node();
+
+// method 1
+Node* next = head->next; next = new Node(); 
+与
+
+// method 2
+head->next = new Node();
+只有方法2可以正确的构造新节点。
 
 
 
