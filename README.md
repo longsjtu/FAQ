@@ -1,8 +1,10 @@
 # 程序设计思想与方法
-## Codeblocks安装教程
+## Tutorials
+
+### Codeblocks相关问题汇总
 &emsp; [Codeblocks Installation](https://github.com/longsjtu/FAQ/blob/Programming---ideas-and-methods/Codeblocks%20Installation/CodeBlocks_Installation.md)
 
-## EduCoder相关问题汇总
+### EduCoder相关问题汇总
 &emsp; [EduCoder相关问题汇总](https://github.com/longsjtu/FAQ/blob/Programming---ideas-and-methods/Codeblocks%20Installation/Educoder相关问题汇总.md)
    
 ## 第一章课后作业习题解答
