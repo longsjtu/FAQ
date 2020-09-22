@@ -6,3 +6,5 @@ EduCoder官方链接为：https://www.educoder.net
 ### 注册
 
 点击右上角的注册，然后请按照页面提醒完成注册流程。你可以选择手机号或者邮箱注册。
+
+![image](https://github.com/longsjtu/FAQ/blob/Programming---ideas-and-methods/Codeblocks%20Installation/images/1__1.png)
