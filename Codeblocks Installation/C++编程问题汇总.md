@@ -122,7 +122,7 @@
 	    int capacity;
     public:
 	    Array(int capacity=10);
-};
+    };
 
 
     // file Array.cpp
@@ -141,49 +141,100 @@
 	    Array<int> A; // failed!
     }
 
-这里错误的原因时编译的时候每个.cpp是独立编译然后链接的。头文件不会被编译，只会做预处理，然后附在 .cpp编译后的文件中。因此编译 main.cpp 的时候只看见头文件，没有看见实现，也就不知道模板实例如何实现。最终导致 main.exe 调用时找不到模板实例的实现。有两种解决方法
+& emsp; 这里错误的原因时编译的时候每个.cpp是独立编译然后链接的。头文件不会被编译，只会做预处理，然后附在 .cpp编译后的文件中。因此编译 main.cpp 的时候只看见头文件，没有看见实现，也就不知道模板实例如何实现。最终导致 main.exe 调用时找不到模板实例的实现。有两种解决方法
 
-将Array的实现和声明都写在一个头文件里，这样 main 就可以看到模板实现了。
+&emsp; 1. 将Array的实现和声明都写在一个头文件里，这样 main 就可以看到模板实现了。
 
-在实现中显示地添加需要的模板实例，例如
+&emsp; 2. 在实现中显示地添加需要的模板实例，例如
 
-// file Array.cpp
+    // file Array.cpp
 
-#include "Array.h"
-template<class T> Array<T>::Array(int capacity) {
-	data = new T[capacity];
-}
+    #include "Array.h"
+    template<class T> Array<T>::Array(int capacity) {
+	    data = new T[capacity];
+    }
 
-template class Array<int>; // 显示添加模板实例
-继承抽象基类时，没有将该抽象基类所有的纯虚成员重新实现。
+    template class Array<int>; // 显示添加模板实例
 
-class List {
-public:
-    virtual int size() const = 0; // pure virtual function 
-    virtual ˜List() {} // destructor 
-};
+**继承抽象基类时，没有将该抽象基类所有的纯虚成员重新实现。**
 
-class Stack: public List {
-public:
-    // 忘记定义和实现 int size() const ...
-};
-定义某个继承类时，基类必须已经实现，且继承类应在定义时实现。
+    class List {
+    public:
+        virtual int size() const = 0; // pure virtual function 
+        virtual ˜List() {} // destructor 
+    };
 
-struct List; 
-strcut LinkList: public List {}; // 错误，基类没有实现
-struct List {}; 
-strcut LinkList: public List; // 错误，继承类没有在定义处实现
-访问内嵌类。
+    class Stack: public List {
+    public:
+        // 忘记定义和实现 int size() const ...
+    };
 
-struct List {
-    struct Node { };
-};
+**定义某个继承类时，基类必须已经实现，且继承类应在定义时实现。**
 
-typename List::Node* pNode = new typename List::Node;
+    struct List; 
+    strcut LinkList: public List {}; // 错误，基类没有实现
+    struct List {}; 
+    strcut LinkList: public List; // 错误，继承类没有在定义处实现
+
+**访问内嵌类。**
+
+    struct List {
+        struct Node { };
+    };
+
+    typename List::Node* pNode = new typename List::Node;
+
+### 变量或者对象的生存期与内存管理**
+**变量或者对象的值没有初始化，或者类内某些成员没有初始化。**
+**对象delete后没有将对应的指针赋值为nullptr或NULL，造成后续的判空问题。**
+**定义数组时，数组大小使用变量。**
+**数组没有初始化却被访问。（可能引发SIGSEGV内存异常的中断）**
+**数组越界访问。（可能引发SIGSEGV中断）**
+
+    int N; cin >> N; int arr[N];  // 错误，数组大小不应该使用变量。这样的处理方式可能会有内存问题。
+
+    class List {
+        ...
+    public:
+        ...
+        int getMax() const {
+            int max; // max 忘记初始化
+            for ...
+        }
+    };
+
+    int* data = new int[255];
+    visit(data[0]); // 没有初始化直接访问 data 数据
 
 
+    int* ptr = new int;
+    delete ptr; // delete后忘记置NULL
+    if (ptr == nullptr) { // 无法进入该分支
+        ...
+    }
+
+&emsp; 指针没有new就访问。此时指针值是随机值或者NULL，访问该位置的内存会引发SIGSEGV中断。
+
+&emsp; 指针delete后再被访问或者再试图delete。此时指针值所在的内存位置已经没有对象，任何访问都将引发SIGSEGV中断。
+
+&emsp; 对象在生存期内，可能被多个指针共享。假如这些指针都是只读的(read-only)，则一点问题没有。但假若某个指针在某个地方对对象进行了写操作或者删除了对象，新手容易遗忘这件事，然后在别地方使用别的指针操作该对象时出错。
+
+&emsp; 指针new完再new，程序没有记住第一次new出来的对象的地址，造成原来的对象悬浮。指针new完没有delete，这个对象会一直占用内存位置，直到程序结束时由系统回收。
+
+&emsp; 不过目前而言，这里只会造成内存浪费，对运行不影响。
+
+    int* p; // p points to random position of memory
+    *p = 1; // trouble
 
 
+    int* p1 = new int{99};
+    int* p2 = p1; // potential trouble
+    delete p1; // now p2 doesn’t point to a valid object
+    p1 = nullptr; // gives a false sense of safety
+    *p2 = 999; // this may cause trouble
 
+
+    int* p3 = new int{99}; // object1
+    p3 = new int{99}; // p3 points to object2, and object1 is dangling
 
 
