@@ -78,34 +78,108 @@
 
 &emsp; 例如
 
-// 前置的函数声明
-bool search(const int&) const;
+    // 前置的函数声明
+    bool search(const int&) const;
 
-// 后置函数实现
-// void search(const int&) const {...}; 错误，函数签名不匹配
-// bool search(int&) const {...}; 错误，函数签名不匹配
-// bool search(const int) const {...}; 错误，函数签名不匹配
-// bool search(const int&) {...}; 错误，函数签名不匹配
-bool search(const int&) const {...}; // OK
-C++的赋值都是值传递。体会差别：
+    // 后置函数实现
+    // void search(const int&) const {...}; 错误，函数签名不匹配
+    // bool search(int&) const {...}; 错误，函数签名不匹配
+    // bool search(const int) const {...}; 错误，函数签名不匹配
+    // bool search(const int&) {...}; 错误，函数签名不匹配
+    bool search(const int&) const {...}; // OK
 
-struct Node { 
-    int data;
-	Node* next;
-    Node(int d=0): data(d) {}
+**C++的赋值都是值传递。体会差别：**
+
+    struct Node { 
+        int data;
+	    Node* next;
+        Node(int d=0): data(d) {}
+    };
+
+    Node* head = new Node();
+
+    // method 1
+    Node* next = head->next; next = new Node(); 
+
+&emsp; 与
+
+    // method 2
+    head->next = new Node();
+
+&emsp; 只有方法2可以正确的构造新节点。
+
+**无法使用nullptr等。**
+
+& emsp; 可以在编译选项中开启-std=c++11。
+
+**一般建议模板类的实现和声明写在同一个文件里，不分开成两个文件写。**
+
+&emsp; 很多同学问过这个问题。例如
+
+    // file Array.h
+    template<class T> class Array {
+	    T* data;
+	    int capacity;
+    public:
+	    Array(int capacity=10);
 };
 
-Node* head = new Node();
 
-// method 1
-Node* next = head->next; next = new Node(); 
-与
+    // file Array.cpp
 
-// method 2
-head->next = new Node();
-只有方法2可以正确的构造新节点。
+    #include "Array.h"
+    template<class T> Array<T>::Array(int capacity) {
+	    data = new T[capacity];
+    }
+    
 
 
+    // file main.cpp
+
+    #include "Array.h"
+    int main() {
+	    Array<int> A; // failed!
+    }
+
+这里错误的原因时编译的时候每个.cpp是独立编译然后链接的。头文件不会被编译，只会做预处理，然后附在 .cpp编译后的文件中。因此编译 main.cpp 的时候只看见头文件，没有看见实现，也就不知道模板实例如何实现。最终导致 main.exe 调用时找不到模板实例的实现。有两种解决方法
+
+将Array的实现和声明都写在一个头文件里，这样 main 就可以看到模板实现了。
+
+在实现中显示地添加需要的模板实例，例如
+
+// file Array.cpp
+
+#include "Array.h"
+template<class T> Array<T>::Array(int capacity) {
+	data = new T[capacity];
+}
+
+template class Array<int>; // 显示添加模板实例
+继承抽象基类时，没有将该抽象基类所有的纯虚成员重新实现。
+
+class List {
+public:
+    virtual int size() const = 0; // pure virtual function 
+    virtual ˜List() {} // destructor 
+};
+
+class Stack: public List {
+public:
+    // 忘记定义和实现 int size() const ...
+};
+定义某个继承类时，基类必须已经实现，且继承类应在定义时实现。
+
+struct List; 
+strcut LinkList: public List {}; // 错误，基类没有实现
+struct List {}; 
+strcut LinkList: public List; // 错误，继承类没有在定义处实现
+访问内嵌类。
+
+struct List {
+    struct Node { };
+};
+
+typename List::Node* pNode = new typename List::Node;
 
 
 
