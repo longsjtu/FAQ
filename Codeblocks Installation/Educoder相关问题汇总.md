@@ -13,7 +13,7 @@ EduCoder官方链接为：https://www.educoder.net
 
 ![image](https://github.com/longsjtu/FAQ/blob/Programming---ideas-and-methods/Codeblocks%20Installation/images/1__2.png)
 
-&emsp; 输入课堂邀请码：
+&emsp; 输入课堂邀请码：B694N
 
 ![image](https://github.com/longsjtu/FAQ/blob/Programming---ideas-and-methods/Codeblocks%20Installation/images/1__3.png)
 
