@@ -6,6 +6,9 @@
 
 ### EduCoder相关问题汇总
 &emsp; [EduCoder相关问题汇总](https://github.com/longsjtu/FAQ/blob/Programming---ideas-and-methods/Codeblocks%20Installation/Educoder相关问题汇总.md)
+
+### 在MacOS上使用VS Code配置C++环境
+
    
 ## 第一章课后作业习题解答
 &emsp; [第一章课后作业解答](https://github.com/longsjtu/FAQ/blob/Programming---ideas-and-methods/Chapter1/Homewrok1.md)
